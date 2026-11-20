@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hostel-Mess | Online Food Managing System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header>
+    <div class="brand">Hostel<span>-Mess</span></div>
+    <div id="topUser">Online Food Managing System</div>
+  </header>
+
+  <main>
+
+    <!-- ========== LOGIN VIEW ========== -->
+    <section id="loginView" class="card login">
+      <h1>Welcome to Hostel-Mess</h1>
+      <p class="muted">Sign in to manage your daily meals</p>
+
+      <div class="tabs">
+        <button id="studentTab" class="active" onclick="setRole('STUDENT')">Student</button>
+        <button id="kitchenTab" onclick="setRole('KITCHEN')">Kitchen</button>
+      </div>
+
+      <label>Username</label>
+      <input id="username" placeholder="Enter username" value="suraj">
+
+      <label>Password</label>
+      <input id="password" type="password" placeholder="Enter password" value="1234">
+
+      <button class="primary full" onclick="login()">Login</button>
+
+      <p class="hint">Demo: Student <b>suraj / 1234</b> · Kitchen <b>kitchen / 1234</b></p>
+      <p id="loginError" class="error"></p>
+    </section>
+
+    <!-- ========== STUDENT VIEW ========== -->
+    <section id="studentView" class="hidden">
+      <div class="welcome">
+        <div>
+          <h1>Today's Menu</h1>
+          <p class="muted">Choose your meal for today.</p>
+        </div>
+        <button class="outline" onclick="logout()">Logout</button>
+      </div>
+
+      <div class="meal-grid" id="studentMeals"></div>
+
+      <div class="card">
+        <h3>My meal activity</h3>
+        <div id="myActivity" class="muted">No activity yet.</div>
+      </div>
+    </section>
+
+    <!-- ========== KITCHEN VIEW ========== -->
+    <section id="kitchenView" class="hidden">
+      <div class="welcome">
+        <div>
+          <h1>Kitchen Dashboard</h1>
+          <p class="muted">Manage menu, meal count and preparation status.</p>
+        </div>
+        <button class="outline" onclick="logout()">Logout</button>
+      </div>
+
+      <div class="stats" id="stats"></div>
+
+      <div class="card">
+        <h2>Update today's menu</h2>
+        <div class="form-row">
+          <select id="menuMeal">
+            <option>Breakfast</option>
+            <option>Lunch</option>
+            <option>Dinner</option>
+          </select>
+          <input id="menuItems" placeholder="e.g. Poha, Tea, Banana">
+          <button class="primary" onclick="saveMenu()">Save menu</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Orders and status</h2>
+        <div id="ordersTable"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>Team OneD · B.Tech CSE Minor Project · SDBCT Indore</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
